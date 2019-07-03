@@ -19,7 +19,7 @@ public class Todo {
     private String task;
 
     @NotNull
-    @Size(min = 10, max = 150)
+    @Size(max = 150)
     private String details;
 
     @NotNull
