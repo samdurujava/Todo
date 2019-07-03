@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Tasks</title>
+</head>
+<body>
+<a href="/add">Add a Task</a><br />
+<table>
+    <tr>
+        <th>Task</th>
+        <th>Priority</th>
+        <th>Due</th>
+        <td>Actions</td>
+    </tr>
+    <tr th:each="task : ${todo}">
+        <td th:text="${task.task}"></td>
+        <td th:text="${task.priority}"></td>
+        <td th:text="${task.due}"></td>
+        <!--<td>-->
+
+            <!--<img th:if="${task.priority.equals('High')}" src="https://previews.123rf.com/images/iulika1/iulika11805/iulika1180500210/105508087-electrical-hazard-sign-high-voltage-danger-symbol-vector-illustration.jpg"/>-->
+        <!--</td>-->
+        <!--<td>-->
+            <!--<img th:if="${task.priority.equals('Low')}"  src="http://www.hgvsolutions.com/images/low.gif"/>-->
+        <!--</td>-->
+        <!--<td>-->
+            <!--<img th:if="${task.completed}" src="https://cdn.pixabay.com/photo/2017/01/31/17/55/check-mark-2025986_960_720.png"/>-->
+        <!--</td>-->
+        <td>
+            <a th:href="@{/update/{id}(id=${task.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${task.id})}">Details</a> -
+            <a th:href="@{/delete/{id}(id=${task.id})}">Delete</a>
+        </td></tr>
+</table>
+</body>
+</html>
